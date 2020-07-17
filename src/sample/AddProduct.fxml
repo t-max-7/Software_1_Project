@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: GAINSBORO;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddProductController">
+   <children>
+      <AnchorPane layoutX="33.0" layoutY="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: GRAY; -fx-border-radius: 10;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="503.0" minWidth="10.0" prefWidth="395.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.0" minWidth="10.0" prefWidth="91.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="182.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label style="-fx-text-fill: DARKBLUE;" text="Add Product">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#onSearchPartClicked" style="-fx-border-color: BLACK;" text="Search" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <TextField fx:id="partSearchTextField" style="-fx-border-color: BLACK;" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets top="1.0" />
+                           </padding></TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="90.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox prefHeight="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <GridPane prefHeight="70.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="65.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="114.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="39.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="ID">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label text="Name" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <TextField fx:id="idTextField" prefWidth="207.0" style="-fx-background-color: GAINSBORO; -fx-border-color: GRAY;" text="Auto Gen - Disabled" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="nameTextField" text="Product Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets right="50.0" top="40.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                              <GridPane prefHeight="105.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="68.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="8.0" prefWidth="47.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="65.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Inv">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label text="Price" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <Label text="Max" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <TextField fx:id="inventoryTextField" prefWidth="105.0" text="Inv" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="priceTextField" text="Price" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="maxTextField" text="Max" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <Label text="Min" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Label>
+                                    <TextField fx:id="minTextField" text="Min" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="40.0" top="5.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="540.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TableView fx:id="availablePartsTableView" prefHeight="200.0" prefWidth="250.0">
+                                <columns>
+                                  <TableColumn fx:id="availablePartIdColumn" prefWidth="75.0" text="Part ID" />
+                                  <TableColumn fx:id="availablePartNameColumn" prefWidth="75.0" text="Part Name" />
+                                    <TableColumn fx:id="availablePartInventoryLevelColumn" prefWidth="75.0" text="Inventory Level" />
+                                    <TableColumn fx:id="availablePartPricePerUnitColumn" prefWidth="75.0" text="Price per Unit" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                <buttons>
+                                  <Button mnemonicParsing="false" onAction="#onAddPartClicked" style="-fx-border-color: BLACK;" text="Add" />
+                                </buttons>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ButtonBar>
+                              <TableView fx:id="associatedPartsTableView" prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn fx:id="associatedPartIdColumn" prefWidth="75.0" text="Part ID" />
+                                  <TableColumn fx:id="associatedPartNameColumn" prefWidth="75.0" text="Part Name" />
+                                    <TableColumn fx:id="associatedPartInventoryLevelColumn" prefWidth="75.0" text="Inventory Level" />
+                                    <TableColumn fx:id="associatedPartPricePerUnitColumn" prefWidth="75.0" text="Price per Unit" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#onDeletePartClicked" style="-fx-border-color: BLACK;" text="Delete" />
+                    </buttons>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </ButtonBar>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#onSaveClicked" style="-fx-border-color: BLACK;" text="Save" />
+                        <Button mnemonicParsing="false" onAction="#onCancelClicked" style="-fx-border-color: BLACK;" text="Cancel" />
+                    </buttons>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </ButtonBar>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
