@@ -1,9 +1,7 @@
-package sample;
+package tmax7.inventory.management.system;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.util.HashMap;
 
 
 public class Inventory {

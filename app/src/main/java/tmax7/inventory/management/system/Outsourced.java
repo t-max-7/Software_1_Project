@@ -1,4 +1,4 @@
-package sample;
+package tmax7.inventory.management.system;
 
 public class Outsourced extends Part {
     private String companyName;

@@ -1,5 +1,6 @@
-package sample;
+package tmax7.inventory.management.system.controllers;
 
+import tmax7.inventory.management.system.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -135,7 +136,7 @@ public class MainScreenController {
     private void onAddPartClicked(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainScreenController.class.getResource("AddPart.fxml"));
+            loader.setLocation(MainScreenController.class.getResource("/AddPart.fxml"));
             AnchorPane anchorPane = (AnchorPane) loader.load();
 
             Stage stage = new Stage();
@@ -163,7 +164,7 @@ public class MainScreenController {
         if(selectedPart != null){
             try {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(MainScreenController.class.getResource("ModifyPart.fxml"));
+                loader.setLocation(MainScreenController.class.getResource("/ModifyPart.fxml"));
                 AnchorPane anchorPane = (AnchorPane) loader.load();
 
                 Stage stage = new Stage();
@@ -227,7 +228,7 @@ public class MainScreenController {
     private void onAddProductClicked(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainScreenController.class.getResource("AddProduct.fxml"));
+            loader.setLocation(MainScreenController.class.getResource("/AddProduct.fxml"));
             AnchorPane anchorPane = (AnchorPane) loader.load();
 
             Stage stage = new Stage();
@@ -254,7 +255,7 @@ public class MainScreenController {
         if(selectedProduct != null) {
             try{
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(MainScreenController.class.getResource("ModifyProduct.fxml"));
+                loader.setLocation(MainScreenController.class.getResource("/ModifyProduct.fxml"));
                 AnchorPane anchorPane = (AnchorPane) loader.load();
 
                 Stage stage = new Stage();
@@ -292,7 +293,7 @@ public class MainScreenController {
     }
 
 
-    void setMainApp(MainApp mainApp){
+    public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
         partTableView.setItems(this.mainApp.getInventory().getAllParts());
         productTableView.setItems(this.mainApp.getInventory().getAllProducts());

@@ -1,8 +1,8 @@
-package sample;
+package tmax7.inventory.management.system.controllers;
 
+import tmax7.inventory.management.system.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -14,13 +14,18 @@ import javafx.util.Callback;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class AddProductController {
+public class ModifyProductController {
     private MainApp mainApp;
     private ObservableList<Part> availableParts;
-    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
+    private ObservableList<Part> associatedParts;
     private Stage stage;
 
     private AtomicBoolean dollarSignUsed = new AtomicBoolean(false);
+
+    private Product productToModify;
+    private TableView<Product> productTableView;
+
+    private Product modifiedProduct = new Product(0, null, 0.0, 0, 0, 0);
 
     @FXML
     private TextField partSearchTextField;
@@ -60,15 +65,12 @@ public class AddProductController {
     @FXML
     private TextField minTextField;
 
-
-
     @FXML
     private void initialize(){
 
         //make idTextField uneditable because id is auto generated
         idTextField.setEditable(false);
-        //set selectedPartsTableView with the parts chosen from available parts table
-        associatedPartsTableView.setItems(associatedParts);
+
 
         //part columns cellValue Factories
         availablePartIdColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Part, String>, ObservableValue<String>>() {
@@ -122,7 +124,6 @@ public class AddProductController {
         });
     }
 
-
     @FXML
     private void onSearchPartClicked() {
         String inputAsString = partSearchTextField.getText();
@@ -145,7 +146,7 @@ public class AddProductController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("");
-                alert.setContentText("Part Not Found");
+                alert.setContentText("Part not Found");
 
                 alert.showAndWait();
             }
@@ -186,7 +187,6 @@ public class AddProductController {
         }
     }
 
-
     @FXML
     private void onDeletePartClicked() {
         Part partToDelete = associatedPartsTableView.getSelectionModel().getSelectedItem();
@@ -197,11 +197,9 @@ public class AddProductController {
 
     @FXML
     private void onSaveClicked(){
-
         if(isInputValid() && isPriceValid()){
-            int id = ++MainApp.numberOfProducts;
+            int id = productToModify.getId();
             String name = nameTextField.getText();
-
 
             double price;
             if(dollarSignUsed.get()){
@@ -214,10 +212,15 @@ public class AddProductController {
             int max = Integer.parseInt(maxTextField.getText());
             int min = Integer.parseInt(minTextField.getText());
 
-            Product product = new Product(id, name, price, stock, min, max);
-            product.getAllAssociatedPart().addAll(associatedParts);
+            modifiedProduct.setId(id);
+            modifiedProduct.setName(name);
+            modifiedProduct.setPrice(price);
+            modifiedProduct.setStock(stock);
+            modifiedProduct.setMax(max);
+            modifiedProduct.setMin(min);
+            modifiedProduct.getAllAssociatedPart().addAll(associatedParts);
 
-            mainApp.getInventory().addProduct(product);
+            updatePartTableView();
 
             stage.close();
         }
@@ -324,4 +327,29 @@ public class AddProductController {
         this.stage = stage;
     }
 
+    public void setProductToModify(Product productToModify) {
+        this.productToModify = productToModify;
+
+        idTextField.setText(Integer.toString(this.productToModify.getId()));
+        nameTextField.setText(this.productToModify.getName());
+        inventoryTextField.setText(Integer.toString(this.productToModify.getStock()));
+        //formatted to money
+        priceTextField.setText(MainApp.formatToMoney(this.productToModify.getPrice()));
+        maxTextField.setText(Integer.toString(this.productToModify.getMax()));
+        minTextField.setText(Integer.toString(this.productToModify.getMin()));
+
+        associatedParts = this.productToModify.getAllAssociatedPart();
+        //set selectedPartsTableView with the parts chosen from available parts table
+        associatedPartsTableView.setItems(associatedParts);
+    }
+
+    public void setProductTableView(TableView<Product> productTableView) {
+        this.productTableView = productTableView;
+    }
+
+    private void updatePartTableView() {
+        // Replace old part (productToModify) with new one (modifiedProduct)
+        int indexOfProductToModify = mainApp.getInventory().getAllProducts().indexOf(this.productToModify);
+        productTableView.getItems().set(indexOfProductToModify, modifiedProduct);
+    }
 }

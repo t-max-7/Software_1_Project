@@ -1,18 +1,19 @@
-package sample;
+package tmax7.inventory.management.system;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tmax7.inventory.management.system.controllers.MainScreenController;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainApp extends Application {
     private Stage primaryStage;
     private Inventory inventory = new Inventory();
-    static int numberOfParts = 0;
-    static int numberOfProducts = 0;
+    public static int numberOfParts = 0;
+    public static int numberOfProducts = 0;
 
     public static final int indexAfterDollarSign = 1;
 
@@ -21,7 +22,7 @@ public class MainApp extends Application {
         this.primaryStage = primaryStage;
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("MainScreen.fxml"));
+        loader.setLocation(MainApp.class.getResource("/MainScreen.fxml"));
         Parent root = loader.load();
 
         MainScreenController controller = loader.getController();

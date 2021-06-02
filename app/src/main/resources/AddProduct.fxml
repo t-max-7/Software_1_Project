@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: GAINSBORO;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddProductController">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: GAINSBORO;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tmax7.inventory.management.system.controllers.AddProductController">
    <children>
       <AnchorPane layoutX="33.0" layoutY="15.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: GRAY; -fx-border-radius: 10;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <children>

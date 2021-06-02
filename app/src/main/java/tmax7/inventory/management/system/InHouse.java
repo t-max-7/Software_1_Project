@@ -1,4 +1,4 @@
-package sample;
+package tmax7.inventory.management.system;
 
 public class InHouse extends Part {
     private int machineId;
